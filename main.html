@@ -1,0 +1,27 @@
+<div ng-controller="dataController">
+    <pre>Sort by = {{propertyName}}; reverse = {{reverse}}</pre>
+    <hr/>
+    <button ng-click="propertyName = null; reverse = false">Set to unsorted</button>
+    <hr/>
+    <table class="friends">
+      <tr>
+        <th>
+          <button ng-click="sortBy('name')">Name</button>
+          <span class="sortorder" ng-show="propertyName === 'name'" ng-class="{reverse: reverse}"></span>
+        </th>
+        <th>
+          <button ng-click="sortBy('category')">category</button>
+          <span class="sortorder" ng-show="propertyName === 'category'" ng-class="{reverse: reverse}"></span>
+        </th>
+        <th>
+          <button ng-click="sortBy('age')">amount</button>
+          <span class="sortorder" ng-show="propertyName === 'amount'" ng-class="{reverse: reverse}"></span>
+        </th>
+      </tr>
+      <tr ng-repeat="friend in empl | orderBy:propertyName:reverse">
+        <td>{{friend.name}}</td>
+        <td>{{friend.category}}</td>
+        <td>{{friend.amount}}</td>
+      </tr>
+    </table>
+  </div>
